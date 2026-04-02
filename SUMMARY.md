@@ -1,4 +1,4 @@
 # Table of contents
 
-* [NETWORKING CONCEPTS](README.md)
+* [Networking Concepts](README.md)
 * [Networking Essential](networking-essential.md)
