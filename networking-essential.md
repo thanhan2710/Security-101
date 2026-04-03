@@ -56,7 +56,7 @@ Khi ta sử dụng ping để kiểm tra thiết bị mục tiêu, để ý rằ
 
 Trường dữ liệu TTL đôi khi được lệnh traceroute yêu cầu phải chạm mức bằng 0 để gửi lại gói tin ICMP Time Exceeded về, từ đó biết được địa chỉ IP của router đầu tiên mà nó đi qua.
 
-## 5.NAT(Network Address Translation).
+## 4.NAT(Network Address Translation).
 
 Chỉ có khoảng 4 tỷ địa chỉ IPv4 cho toàn thế giới, vì vậy việc tiết kiệm IP là rất quan trọng và đáng lẽ ra với con số khoảng 4 tỷ địa chỉ IPv4 thì có lẽ đã cạn kiệt từ rất lâu rồi. Nhưng nhờ có NAT vấn đề đó đã được giải quyết.
 

@@ -74,10 +74,10 @@ Mô hình này được sử dụng nhiều hơn trong giao tiếp mạng máy t
 
 Mô hình này chỉ có 4 layer:
 
-* [ ] Link Layer: được kết hợp từ Physical layer và data link layer của mô hình OSI.
-* [ ] Internet Layer: là Network layer trong mô hình OSI.
-* [ ] Transport Layer: Tương tự như transport layer trong mô hình OSI.
-* [ ] Application Layer: Bao gồm Session layer, Presentation layer và Application layer trong mô hình OSI.
+* [x] Link Layer: được kết hợp từ Physical layer và data link layer của mô hình OSI.
+* [x] Internet Layer: là Network layer trong mô hình OSI.
+* [x] Transport Layer: Tương tự như transport layer trong mô hình OSI.
+* [x] Application Layer: Bao gồm Session layer, Presentation layer và Application layer trong mô hình OSI.
 
 ### Điểm qua một chút về IP Address và Subnet
 
