@@ -56,13 +56,17 @@ Khi ta sử dụng ping để kiểm tra thiết bị mục tiêu, để ý rằ
 
 Trường dữ liệu TTL đôi khi được lệnh traceroute yêu cầu phải chạm mức bằng 0 để gửi lại gói tin ICMP Time Exceeded về, từ đó biết được địa chỉ IP của router đầu tiên mà nó đi qua.
 
-## 4.Các giải thuật định tuyến của Router.
-
 ## 5.NAT(Network Address Translation).
 
+Chỉ có khoảng 4 tỷ địa chỉ IPv4 cho toàn thế giới, vì vậy việc tiết kiệm IP là rất quan trọng và đáng lẽ ra với con số khoảng 4 tỷ địa chỉ IPv4 thì có lẽ đã cạn kiệt từ rất lâu rồi. Nhưng nhờ có NAT vấn đề đó đã được giải quyết.
 
+NAT là một giao thức ở tầng Internet, về cơ bản chức năng của nó là dịch một dải địa chỉ Private IP thành một địa chỉ Public IP để cho thiết bị truy cập ra bên ngoài mạng nội bộ.
 
+Để làm được điều này, ta cần router có cấu hình NAT. Khi đó router sẽ lưu bảng dịch địa chỉ IP từ Internal IP sang External IP như bên dưới
 
+<figure><img src=".gitbook/assets/5f04259cf9bf5b57aed2c476-1719848845717 (1).svg" alt=""><figcaption></figcaption></figure>
+
+Với mỗi Private IP sẽ có một cổng để dữ liệu đi ra và Public IP một cổng để dữ liệu đi vào, tuy nhiên chỉ có một Public IP ở đây. Khi bạn nhìn thiết bị của bạn với địa chỉ IP là `192.168.0.137 27912` , nhưng   các trang web mà bạn truy cập lại chỉ nhìn thấy địa chỉ Public IP của bạn là `212.3.4.5 32759`  điều này giúp bảo mật Private IP của bạn. Thường thì những router được cấu hình để ẩn đi Private IP address của bạn khi định tuyến ra bên ngoài mạng.&#x20;
 
 
 
