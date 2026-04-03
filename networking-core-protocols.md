@@ -48,4 +48,21 @@ Hoặc đơn giản hơn với telnet:
 
 Với hình ảnh ở trên, ta đang truy cập đến web server có địa chỉ là <kbd>10.48.138.101</kbd> tại cổng 80. Các tham số là <kbd>GET /flag.thml HTTP/1.1</kbd>  tức là lấy file có tên flag.html bằng giao thức HTTP bản 1.1 và <kbd>Host: anything</kbd>  tức là truy cập đến server có tên anything vì ở đây chỉ là ví dụ. Trên thực tế giá trị ở phần Host ta nhập vào sẽ là địa chỉ IP của web server hoặc tên trang chính xác của nó.
 
-## 4. FTP(File Tranfer Protocol)
+## 4. FTP(File Tranfer Protocol).
+
+Trong khi HTTP hay HTTPS được dùng để truy xuất đến một trang web thì FTP dùng để trao đổi file. FTP rất hiệu quả cho việc trao đổi file. FPT Server lắng nghe trên cổng TCP số 21, việc truyền dữ liệu được thực hiện thông qua một kết nối khác từ client đến server chỉ khi việc trao đổi file diễn ra.
+
+Một số command thường được sử dụng:
+
+<kbd>USER</kbd> : Người dùng nhập vào tài khoản.
+
+<kbd>PASS</kbd> : Người dùng nhập vào mật khẩu.
+
+<kbd>RETR</kbd> : Truy xuất đến một file trên FTP Server để tải xuống.
+
+<kbd>STOR</kbd> : Đẩy file từ client lên FTP Server.
+
+<figure><img src=".gitbook/assets/2026-04-03_14-47.png" alt=""><figcaption><p><strong>Phần màu đỏ là Client còn phần màu xanh là FTP Server trả lời.</strong></p></figcaption></figure>
+
+Cơ bản thì quá trình diễn ra như trên.
+
