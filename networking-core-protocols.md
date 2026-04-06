@@ -1,6 +1,6 @@
 # Networking Core Protocols
 
-## 1.Dịch vụ phân giải tên miền DNS(Domain Name System).
+1.Dịch vụ phân giải tên miền DNS(Domain Name System).
 
 DNS hoạt động tại tầng tứng dụng, nó chịu trách nghiệm phân giải tên miền thành địa chỉ IP, có các bản ghi của DNS như:
 
@@ -135,7 +135,7 @@ Các email sau khi được truy xuất để xem sẽ bị xóa khỏi mail ser
 
 Khi chúng ta sử dụng đa thiết bị, việc đồng bộ hóa là quan trọng. Trong khi POP3 sẽ xóa email sau khi có một thiết bị đã xem, nó chỉ đủ dùng khi làm việc trên một thiết bị duy nhất. IMAP cung cấp cơ chế đồng bộ hóa các hoạt động như đọc email, truy xuất và lưu trữ email và cả xóa email. IMAP server mặc định hoạt động trên cổng TCP số 143.
 
-Một số command cơ bản, cùng xem qua phiên kết nối sau:
+Một số command cơ bản, cùng xem qua phiên kết nối bằng telnet đến cổng số 143 sau:
 
 <kbd>user@thanhan$ telnet 10.10.41.192 143 Trying 10.10.41.192... Connected to 10.10.41.192. Escape character is '^]'.</kbd>
 
@@ -149,12 +149,26 @@ Một số command cơ bản, cùng xem qua phiên kết nối sau:
 * <kbd>0 RECENT</kbd>
 * <kbd>OK \[UNSEEN 2] First unseen.</kbd>
 * <kbd>OK \[UIDVALIDITY 1719824692] UIDs valid</kbd>
-* <kbd>OK \[UIDNEXT 5] Predicted next UID B OK \[READ-WRITE] Select completed (0.001 + 0.000 secs). C FETCH 3 body\[]</kbd>
-* <kbd>3 FETCH (BODY\[] {445} Return-path:</kbd> [<kbd>user@client.thm</kbd>](mailto:user@client.thm) <kbd>Envelope-to: strategos@server.thm Delivery-date: Thu, 27 Jun 2024 16:19:35 +0000 Received: from \[10.11.81.126] (helo=client.thm) by example.thm with smtp (Exim 4.95) (envelope-from</kbd> [<kbd>user@client.thm</kbd>](mailto:user@client.thm)<kbd>) id 1sMrpq-0001Ah-UT for strategos@server.thm; Thu, 27 Jun 2024 16:19:35 +0000 From: user@client.thm To: strategos@server.thm Subject: Telnet email</kbd>
+* <kbd>OK \[UIDNEXT 5] Predicted next UID</kbd>&#x20;
+* <kbd>B OK \[READ-WRITE] Select completed (0.001 + 0.000 secs).</kbd>&#x20;
+* <kbd>C</kbd> [<kbd>FETCH 3 body\[\]</kbd>](#user-content-fn-9)[^9]&#x20;
+* <kbd>3 FETCH (BODY\[] {445}</kbd>&#x20;
+* <kbd>Return-path:</kbd> [<kbd>user@client.thm</kbd>](mailto:user@client.thm)&#x20;
+* <kbd>Envelope-to: strategos@server.thm</kbd>&#x20;
+* <kbd>Delivery-date: Thu, 27 Jun 2024 16:19:35 +0000</kbd>&#x20;
+* <kbd>Received: from \[10.11.81.126] (helo=client.thm) by example.thm with smtp (Exim 4.95) (envelope-from</kbd> [<kbd>user@client.thm</kbd>](mailto:user@client.thm)<kbd>) id 1sMrpq-0001Ah-UT for strategos@server.thm; Thu, 27 Jun 2024 16:19:35 +0000</kbd>&#x20;
+* <kbd>From: user@client.thm</kbd>&#x20;
+* <kbd>To: strategos@server.thm</kbd>&#x20;
+* <kbd>Subject: Telnet email</kbd>
 
-<kbd>Hello. I am using telnet to send you an email! ) C OK Fetch completed (0.001 + 0.000 secs). D LOGOUT</kbd>
+<kbd>Hello. I am using telnet to send you an email! )</kbd>&#x20;
 
-* <kbd>BYE Logging out D OK Logout completed (0.001 + 0.000 secs). Connection closed by foreign host.</kbd>&#x20;
+<kbd>C OK Fetch completed (0.001 + 0.000 secs).</kbd>&#x20;
+
+<kbd>D LOGOUT</kbd>
+
+* [<kbd>BYE</kbd>](#user-content-fn-10)[^10] <kbd>Logging out</kbd>&#x20;
+* <kbd>D</kbd> [<kbd>OK Logout completed</kbd>](#user-content-fn-11)[^11] <kbd>(0.001 + 0.000 secs). Connection closed by foreign host.</kbd>&#x20;
 
 Toàn bộ các dòng trên đều nằm trong cùng một phiên kết nối.
 
@@ -179,3 +193,9 @@ Toàn bộ các dòng trên đều nằm trong cùng một phiên kết nối.
 
 
 [^8]: Xác nhận hòm thư muốn truy nhập, ở đây đang truy nhập vào hòm thư inbox
+
+[^9]: Lấy phần header và body của email số 3 có trong hòm thư này
+
+[^10]: Thoát khỏi phiên IMAP này
+
+[^11]: Xác nhận kết thúc phiên IMAP này
