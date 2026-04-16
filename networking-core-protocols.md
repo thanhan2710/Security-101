@@ -1,6 +1,6 @@
 # Networking Core Protocols
 
-1.Dịch vụ phân giải tên miền DNS(Domain Name System).
+## 1.Dịch vụ phân giải tên miền DNS(Domain Name System).
 
 DNS hoạt động tại tầng tứng dụng, nó chịu trách nghiệm phân giải tên miền thành địa chỉ IP, có các bản ghi của DNS như:
 
