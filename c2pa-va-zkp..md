@@ -72,7 +72,11 @@ Tức là làm sao để các phép biến đổi ảnh thông thường trở t
 
 ZK-IMG còn cung cấp một phương pháp liên kết các phép biến đổi hình ảnh mà không tiết lộ đầu ra trung gian. ZK-IMG sẽ đóng gói càng nhiều phép biến đổi vào một bằng chứng duy nhất càng tốt. Để tránh tiết lộ thông tin, ZK-IMG băm các input và output và chỉ tiết lộ các giá trị băm như là một phần của bằng chứng và chỉ tiết lộ giá trị băm của đầu ra cuối cùng.
 
-Bằng những cách thức đó, ZK-IMG có khả năng xác minh số lượng tùy ý các phép biến đổi trên hình ảnh HD bằng phần cứng thông dụng với thời gian ngắn và chi phí rẻ
+Bằng những cách thức đó, ZK-IMG có khả năng xác minh số lượng tùy ý các phép biến đổi trên hình ảnh HD bằng phần cứng thông dụng với thời gian ngắn và chi phí rẻ.
+
+
+
+
 
 
 
