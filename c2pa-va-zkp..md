@@ -2,26 +2,39 @@
 
 ## I. C2PA( Colalition for Content Provenance and Authenticity ).
 
-C2PA là một tiêu chuẩn về việc xác minh nguồn gốc và tính xác thực của nội dung số (video, hình ảnh, âm thanh), đặc tả kỹ thuật về siêu dữ liệu dành cho các phương tiện truyền thông kĩ thuật số  được phát triển bởi [Colalition for Content Provenance and Authenticity](#user-content-fn-1)[^1]
+### 1.Tổng quan về C2PA.
 
-**Mục đích của C2PA :**
+C2PA là một tiêu chuẩn về việc xác minh nguồn gốc và tính xác thực của nội dung số (video, hình ảnh, âm thanh), đặc tả kỹ thuật về siêu dữ liệu dành cho các phương tiện truyền thông kĩ thuật số  được phát triển bởi [Colalition for Content Provenance and Authenticity](#user-content-fn-1)[^1].
 
-* [x] Trong bối cảnh AI tạo ra những hình ảnh nhân tạo ngày càng sắc nét và khó nhận biết nhằm mục đích tuyên truyền các thông tin sai lệch hoặc gây hại hoặc các thông tin không chính thống được truyền đi trên mạng xã hội nhằm vào các mục đích xấu thì chuẩn C2PA đã cung cấp giải pháp gắn vào tệp nội dung một hay nhiều lớp siêu dữ liệu được ký bằng mật mã học với mục đích làm rõ thời gian tạo ra nội dung đó, người tạo ra nó là ai ? thiết bị nào tạo ra nội dung này ?
+Trong bối cảnh AI tạo ra những hình ảnh nhân tạo ngày càng sắc nét và khó nhận biết nhằm mục đích tuyên truyền các thông tin sai lệch hoặc gây hại hoặc các thông tin không chính thống được truyền đi trên mạng xã hội nhằm vào các mục đích xấu thì chuẩn C2PA đã cung cấp giải pháp gắn vào tệp nội dung một hay nhiều lớp siêu dữ liệu được ký bằng mật mã học với mục đích làm rõ thời gian tạo ra nội dung đó, người tạo ra nó là ai ? thiết bị nào tạo ra nội dung này ?
 
 Chuẩn C2PA cung cấp đầy đủ thông tin để người dùng có thể xác nhận được nguồn gốc, lịch sử và tính xác thực của nội dung số . Việc sử dụng chữ ký số bằng mật mã học khiến cho thông tin khó bị thay đổi mà không để lại dấu vết.
 
 Khi một nền tảng hoặc phần mềm hỗ trợ tiêu chuẩn này, người dùng có thể truy cập vào dữ liệu xác thực để biết được nguồn gốc của nội dung và những lần nội dung bị chỉnh sửa trong quá khứ hay không.
 
-**Qua đó ta thấy được tiêu chuẩn C2PA muốn nhắm đến việc :**&#x20;
+### 2. Tổng quan kỹ thuật
 
-* [x] Chống tin giả và deepfake.
-* [x] Bảo vệ bản quyền nội dung số.
-* [x] Tăng tính minh bạch của nội dung số.
+Về cấu trúc, C2PA gồm nhiều **assertion**, tức là các khẳng định riêng lẻ về tài sản số. Các assertion này có thể mô tả tác giả, bản quyền, thiết bị ghi hình, phần mềm xử lý, thao tác chỉnh sửa hoặc mối liên kết với nội dung gốc. Nhiều assertion được gom lại thành một **claim**, hay có thể hiểu là bản khai tổng hợp về tài sản số.
 
-**Một số ứng dụng của C2PA trong thực tế :**&#x20;
+Để đảm bảo claim không bị giả mạo, C2PA sử dụng **chữ ký số**. Chữ ký số giúp xác minh rằng các thông tin trong claim không bị thay đổi sau khi được ký. Ngoài ra, C2PA có thể kết hợp thêm **Verifiable Credentials tức là các giấy chứng nhận điện tử** nhằm cung cấp các thông tin xác thực bổ sung, giúp tăng độ tin cậy cho nội dung.
 
-* Các thiết bị máy ảnh của Sony, Nikon hay Canon và một số thiết bị điện thoại di động như Google pixel 10, Samsung Galaxy S25 Series đã được tích hợp chuẩn C2PA khi chụp ảnh.
-* Các phần mềm Adobe Photoshop, Lightroom cho phép xuất file kèm chứng chỉ nội dung theo đúng tiêu chuẩn C2PA.
+Tất cả các thành phần như assertion, claim, chữ ký số và thông tin xác thực được liên kết với nhau tạo thành **C2PA Manifest**. Manifest này được tạo bởi một phần mềm hoặc thiết bị gọi là **Claim Generator**, ví dụ như máy ảnh, phần mềm chỉnh sửa ảnh hoặc công cụ `c2patool`.
+
+<figure><img src=".gitbook/assets/Manifest.drawio.svg" alt=""><figcaption></figcaption></figure>
+
+Tóm lại, C2PA không trực tiếp khẳng định nội dung là đúng hay sai, mà cung cấp một “hồ sơ nguồn gốc” giúp người dùng kiểm tra lịch sử tạo lập, chỉnh sửa và tính toàn vẹn của nội dung số. Đây là cơ sở quan trọng trong việc hỗ trợ chống tin giả và xác minh thông tin trên môi trường số.
+
+### 3. Thiết lập lòng tin trong C2PA.
+
+Trong C2PA, lòng tin được xây dựng dựa trên danh tính của chủ thể ký nội dung và khóa ký mật mã được sử dụng trong quá trình tạo Tệp kê khai C2PA. Chủ thể này có thể là cá nhân, tổ chức, thiết bị phần cứng đáng tin cậy hoặc phần mềm hỗ trợ C2PA. Khi một Manifest được tạo, các thông tin về nguồn gốc, hành động chỉnh sửa và liên kết với nội dung sẽ được ghi lại, sau đó được ký bằng chữ ký số để đảm bảo tính toàn vẹn.
+
+C2PA không yêu cầu danh tính của chủ thể phải luôn được công khai. Danh tính có thể là tên thật, bút danh, ẩn danh hoặc thuộc về một thiết bị/dịch vụ đáng tin cậy. Ngoài ra, Manifest cũng có thể chứa thông tin xác thực như chứng chỉ mật mã để người kiểm tra biết chữ ký còn hợp lệ, đã hết hạn hay bị thu hồi hay chưa.
+
+Ví dụ, khi người dùng chụp ảnh bằng máy ảnh hoặc điện thoại có hỗ trợ C2PA, thiết bị sẽ tạo một Manifest chứa các thông tin như thời gian chụp, thiết bị sử dụng, hình thu nhỏ và mã băm liên kết ảnh với Manifest. Các thông tin này được đưa vào Claim, sau đó Claim được ký số và nhúng vào tệp ảnh đầu ra, chẳng hạn như tệp JPEG.
+
+Khi một công cụ kiểm tra như C2PA Validator đọc ảnh, nó sẽ trích xuất Manifest, kiểm tra chữ ký số, chứng chỉ liên quan và tính toàn vẹn của các assertion. Nhờ đó, người dùng có thể biết nội dung có nguồn gốc từ đâu, đã bị thay đổi hay chưa và có đủ cơ sở để tin cậy hay không.
+
+C2PA thiết lập lòng tin không phải bằng cách khẳng định nội dung là đúng tuyệt đối, mà bằng cách cung cấp bằng chứng kỹ thuật về nguồn gốc, lịch sử xử lý, chữ ký số và thông tin xác thực của nội dung số.
 
 ## II. ZKP (Zero-knowledge Proofs).
 
@@ -52,7 +65,7 @@ Non-interactive ZKP (ZKP không tương tác): Prover và Verifier chỉ cần t
 1. Zk-SNARK :&#x20;
 2. Zk-STARK:
 
-## III. ZK-IMG: tested Images via Zero-Knowledge Proofs to Fight Disinformation.
+## III. ZK-IMG: Attested Images via Zero-Knowledge Proofs to Fight Disinformation.
 
 Với việc deepfake và các thông tin giả mạo hiện nay đang trở nên phổ biến hơn do sự bành trướng của trí tuệ nhân tạo thì việc có một công nghệ mới nhằm chống lại điều đó là tất yếu. Các nghiên cứu đã đề xuất sử dụng ZK-SNARKs và camera được chứng thực để xác minh hình ảnh ngay khi chụp.     Mặc dù ZK-SNARK cho phép xác thực hình ảnh một cách không tương tác, tuy nhiên nghiên cứu này không bảo vệ quyền riêng tư và dữ liệu của đầu vào và bằng một cách nào đó nó chỉ hoạt động trên các hình ảnh 128 x 128.
 
